@@ -1,4 +1,4 @@
-README
+# Monitoring Stack
 
 This repository contains a small Docker Compose monitoring stack suitable for local or small-server use.
 
@@ -66,9 +66,3 @@ Git tips
 git add .gitignore .env.example alertmanager/config.yml.template scripts/ docker-compose.yml prometheus/ loki/
 git commit -m "Initial monitoring config: templates + render script (do not commit .env)"
 ```
-
-Notes
-- If `envsubst` is not present inside the containers, render templates on the host using `scripts/render-configs.sh`.
-- You can automate rendering in CI (render before deploying).
-
-If you want me to create the initial commit (excluding `.env`) or add a CI job to render templates, say so.
