@@ -1,0 +1,14 @@
+groups:
+  - name: disk-usage
+    rules:
+      - alert: DiskSpaceLow
+        expr: |
+          (node_filesystem_size_bytes{fstype!="tmpfs", fstype!="overlay"} - node_filesystem_free_bytes{fstype!="tmpfs", fstype!="overlay"})
+          / node_filesystem_size_bytes{fstype!="tmpfs", fstype!="overlay"} * 100 > 80
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: "🧨 Disque presque plein : {{ $labels.device }} sur {{ $labels.mountpoint }}"
+          description: "Le disque {{ $labels.device }} monté sur {{ $labels.mountpoint }} est utilisé à plus de 80 %."
+

@@ -1,0 +1,23 @@
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Rendered/secret configs
+alertmanager/config.yml
+
+# Docker volumes / local runtime data
+grafana_data/
+loki_data/
+
+# Logs, temp, editor, python
+*.log
+*.pid
+*.sock
+tmp/
+*.bak
+.DS_Store
+.vscode/
+.idea/
+__pycache__/
+*.pyc
